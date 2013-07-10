@@ -1,0 +1,4 @@
+kata-yahtzee
+============
+
+KataYahtzee
