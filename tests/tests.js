@@ -31,3 +31,10 @@ test("Four of a kind", function()
 	ok(!Yahtzee.isFourOfAKind([4,5,4,3,4]), "Only three fours");
 	ok(!Yahtzee.isFourOfAKind([6,4,3,5,1]), "Only unique values");
 });
+
+test("Small straight", function()
+{
+	ok(Yahtzee.isSmallStraight([3,4,1,5,2]), "Small straight");
+	ok(!Yahtzee.isSmallStraight([3,4,6,5,2]), "Large straight");
+	ok(!Yahtzee.isSmallStraight([1,1,1,1,1]), "No unique values");
+});

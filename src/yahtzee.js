@@ -1,6 +1,6 @@
 var Yahtzee = {
 	isPair : function(roll)
-	{	
+	{
 		var valid = false;
 		var i;
 
@@ -38,6 +38,20 @@ var Yahtzee = {
 
 		valid |= parseInt(roll.slice(0, 4).join(""), 10)%1111 === 0;
 		valid |= parseInt(roll.slice(1, 5).join(""), 10)%1111 === 0;
+
+		return valid;
+	},
+	isSmallStraight : function(roll)
+	{
+		var valid = true;
+		var i;
+
+		roll.sort();
+
+		for (i = 0; i < 5; i++)
+		{
+			valid &= (roll[i] === i+1);
+		}
 
 		return valid;
 	}
