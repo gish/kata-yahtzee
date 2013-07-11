@@ -53,3 +53,12 @@ test("Full house", function()
 	ok(!Yahtzee.isFullHouse([1,6,3,6,6]), "Two pairs with threes and sixes");
 	ok(!Yahtzee.isFullHouse([6,6,6,6,6]), "Yahtzee");
 });
+
+test("Yahtzee", function()
+{
+	ok(Yahtzee.isYahtzee([4,4,4,4,4]), "Yahtzee with fours");
+	ok(Yahtzee.isYahtzee([1,1,1,1,1]), "Yahtzee with ones");
+	ok(!Yahtzee.isYahtzee([1,1,1,1,4]), "Four of a kind");
+	ok(!Yahtzee.isYahtzee([1,1,1,2,4]), "Three of a kind");
+	ok(!Yahtzee.isYahtzee([1,5,3,2,4]), "Small straight");
+});

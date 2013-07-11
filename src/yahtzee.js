@@ -86,6 +86,14 @@
 			valid &= roll[0] !== roll[4];
 
 			return valid;
+		},
+		isYahtzee : function(roll)
+		{
+			var valid = false;
+
+			valid = parseInt(roll.join(""), 10)%11111 === 0;
+
+			return valid;
 		}
 	};
 
