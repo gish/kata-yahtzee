@@ -30,5 +30,9 @@ var Yahtzee = {
 			isThreeOfAKind |= (roll[i]*1E2 + roll[i + 1]*1E1 + roll[i + 2])%111 === 0;
 		}
 		return isThreeOfAKind;
+	},
+	isFourOfAKind : function()
+	{
+		return false;
 	}
 };

@@ -16,9 +16,18 @@ test("Two pairs", function()
 	ok(!Yahtzee.isTwoPairs([2,2,5,2,2]), "Not only pairs with twos");
 	ok(!Yahtzee.isTwoPairs([5,4,4,4,4]), "Not only pairs with fours");
 });
+
 test("Three of a kind", function()
 {
 	ok(Yahtzee.isThreeOfAKind([1,2,1,3,1]), "Three ones");
 	ok(Yahtzee.isThreeOfAKind([5,6,5,6,5]), "Three fours");
 	ok(Yahtzee.isThreeOfAKind([5,5,1,5,6]), "Three fives");
+});
+
+test("Four of a kind", function()
+{
+	ok(Yahtzee.isFourOfAKind([1,1,2,1,1]), "Four ones");
+	ok(Yahtzee.isFourOfAKind([3,3,3,3,2]), "Four threes");
+	ok(!Yahtzee.isFourOfAKind([4,5,4,3,4]), "Only three fours");
+	ok(!Yahtzee.isFourOfAKind([6,4,3,5,1]), "Only unique values");
 });
