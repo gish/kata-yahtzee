@@ -11,6 +11,8 @@ test("Two pairs", function()
 {
 	ok(Yahtzee.isTwoPairs([1,4,2,4,1]), "Two pairs with ones and fours");
 	ok(Yahtzee.isTwoPairs([5,6,6,3,5]), "Two pairs with fives and sixes");
+	ok(!Yahtzee.isTwoPairs([3,4,3,2,1]), "Only one pair");
+	ok(!Yahtzee.isTwoPairs([3,4,5,2,1]), "No pairs");
 });
 test("Three of a kind", function()
 {
