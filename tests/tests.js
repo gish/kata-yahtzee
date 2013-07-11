@@ -45,3 +45,11 @@ test("Large straight", function()
 	ok(!Yahtzee.isLargeStraight([3,4,1,5,2]), "Small straight");
 	ok(!Yahtzee.isLargeStraight([1,1,1,1,1]), "No unique values");
 });
+
+test("Full house", function()
+{
+	ok(Yahtzee.isFullHouse([3,6,3,3,6]), "Full house with sixes and threes");
+	ok(Yahtzee.isFullHouse([3,6,3,6,6]), "Full house with threes and sixes");
+	ok(!Yahtzee.isFullHouse([1,6,3,6,6]), "Two pairs with threes and sixes");
+	ok(!Yahtzee.isFullHouse([6,6,6,6,6]), "Yahtzee");
+});

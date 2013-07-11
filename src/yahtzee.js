@@ -71,6 +71,11 @@
 			}
 
 			return valid;
+		},
+		isFullHouse : function(roll)
+		{
+			var valid;
+			return valid;
 		}
 	};
 
