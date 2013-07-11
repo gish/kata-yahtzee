@@ -62,3 +62,9 @@ test("Yahtzee", function()
 	ok(!Yahtzee.isYahtzee([1,1,1,2,4]), "Three of a kind");
 	ok(!Yahtzee.isYahtzee([1,5,3,2,4]), "Small straight");
 });
+
+test("Chance", function()
+{
+	ok(Yahtzee.isChance([1,2,3,4,5]), "Chance with unique values");
+	ok(Yahtzee.isChance([2,3,3,2,3]), "Chance with full house");
+});

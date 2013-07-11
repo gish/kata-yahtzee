@@ -94,6 +94,11 @@
 			valid = parseInt(roll.join(""), 10)%11111 === 0;
 
 			return valid;
+		},
+		isChance : function(roll)
+		{
+			var valid = true;
+			return valid;
 		}
 	};
 
