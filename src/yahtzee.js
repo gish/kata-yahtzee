@@ -1,16 +1,16 @@
 var Yahtzee = {
 	isPair : function(roll)
 	{	
-		var isPair = false;
+		var valid = false;
 		var i;
 
 		roll.sort();
 
 		for (i = 0; i < 4; i++)
 		{
-			isPair |= (roll[i] === roll[i+1]);
+			valid |= (roll[i] === roll[i+1]);
 		}
-		return isPair;
+		return valid;
 	},
 	isTwoPairs : function(roll)
 	{
@@ -20,19 +20,25 @@ var Yahtzee = {
 	},
 	isThreeOfAKind : function(roll)
 	{
-		var isThreeOfAKind = false;
+		var valid = false;
 		var i;
 
 		roll.sort();
 
 		for (i = 0; i < 3; i++)
 		{
-			isThreeOfAKind |= (roll[i]*1E2 + roll[i + 1]*1E1 + roll[i + 2])%111 === 0;
+			valid |= (roll[i]*1E2 + roll[i + 1]*1E1 + roll[i + 2])%111 === 0;
 		}
-		return isThreeOfAKind;
+		return valid;
 	},
-	isFourOfAKind : function()
+	isFourOfAKind : function(roll)
 	{
-		return false;
+		var valid = false;
+		roll.sort();
+
+		valid |= parseInt(roll.slice(0, 4).join(""), 10)%1111 === 0;
+		valid |= parseInt(roll.slice(1, 5).join(""), 10)%1111 === 0;
+
+		return valid;
 	}
 };
