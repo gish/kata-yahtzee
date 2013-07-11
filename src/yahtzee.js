@@ -8,7 +8,7 @@ var Yahtzee = {
 
 		for (i = 0; i < 4; i++)
 		{
-			isPair |= roll[i] + roll[i+1];
+			isPair |= (roll[i] === roll[i+1]);
 		}
 		return isPair;
 	},
