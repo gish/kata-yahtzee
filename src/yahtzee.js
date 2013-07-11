@@ -15,8 +15,8 @@ var Yahtzee = {
 	isTwoPairs : function(roll)
 	{
 		roll.sort();
-		return	(roll[0] === roll[1]) && (roll[2] === roll[3]) ||
-				(roll[0] === roll[1] || roll[1] === roll[2]) && (roll[3] === roll[4]);
+		return	((roll[0] === roll[1]) && (roll[2] === roll[3]) && (roll[0] !== roll[2])) ||
+				((roll[0] === roll[1] || roll[1] === roll[2]) && (roll[3] === roll[4]) && (roll[1] !== roll[3]));
 	},
 	isThreeOfAKind : function(roll)
 	{
