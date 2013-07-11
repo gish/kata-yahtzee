@@ -74,7 +74,17 @@
 		},
 		isFullHouse : function(roll)
 		{
-			var valid;
+			var valid = true;
+			var halfA;
+			var halfB;
+
+			roll.sort();
+
+			valid &= parseInt(roll.slice(0, 2).join(""), 10)%11 === 0;
+			valid &= parseInt(roll.slice(3, 5).join(""), 10)%11 === 0;
+			valid &= roll[2] === roll[0] || roll[2] == roll[4];
+			valid &= roll[0] !== roll[4];
+
 			return valid;
 		}
 	};
