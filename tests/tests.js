@@ -68,3 +68,11 @@ test("Chance", function()
 	ok(Yahtzee.isChance([1,2,3,4,5]), "Chance with unique values");
 	ok(Yahtzee.isChance([2,3,3,2,3]), "Chance with full house");
 });
+
+test("Ones", function()
+{
+	ok(Yahtzee.isOnes([1,1,1,1,1]), "All ones");
+	ok(Yahtzee.isOnes([1,2,3,4,1]), "Two ones");
+	ok(Yahtzee.isOnes([1,2,3,4,2]), "One one");
+	ok(!Yahtzee.isOnes([6,2,3,4,6]), "No ones");
+});

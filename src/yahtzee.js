@@ -99,6 +99,12 @@
 		{
 			var valid = true;
 			return valid;
+		},
+		isOnes : function(roll)
+		{
+			var valid = false;
+			valid = roll.indexOf(1) !== -1;
+			return valid;
 		}
 	};
 
