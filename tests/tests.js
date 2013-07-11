@@ -38,3 +38,10 @@ test("Small straight", function()
 	ok(!Yahtzee.isSmallStraight([3,4,6,5,2]), "Large straight");
 	ok(!Yahtzee.isSmallStraight([1,1,1,1,1]), "No unique values");
 });
+
+test("Large straight", function()
+{
+	ok(Yahtzee.isLargeStraight([3,4,6,5,2]), "Large straight");
+	ok(!Yahtzee.isLargeStraight([3,4,1,5,2]), "Small straight");
+	ok(!Yahtzee.isLargeStraight([1,1,1,1,1]), "No unique values");
+});

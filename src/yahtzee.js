@@ -54,5 +54,19 @@ var Yahtzee = {
 		}
 
 		return valid;
+	},
+	isLargeStraight : function(roll)
+	{
+		var valid = true;
+		var i;
+
+		roll.sort();
+
+		for (i = 0; i < 5; i++)
+		{
+			valid &= (roll[i] === i+2);
+		}
+
+		return valid;
 	}
 };
