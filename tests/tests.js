@@ -150,3 +150,10 @@ test("Four of a kind", function()
 	ok(Yahtzee.getFourOfAKindScore([4,6,6,6,1]) === 0, "Only three of a kind");
 	ok(Yahtzee.getFourOfAKindScore([5,3,4,2,1]) === 0, "Unique values");
 });
+
+test("Small straight", function()
+{
+	ok(Yahtzee.getSmallStraightScore([4,3,1,2,5]) === 15, "Small straight");
+	ok(Yahtzee.getSmallStraightScore([4,3,2,2,5]) === 0, "One pair");
+	ok(Yahtzee.getSmallStraightScore([2,2,2,2,2]) === 0, "Yahtzee");
+});

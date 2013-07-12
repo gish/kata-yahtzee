@@ -140,6 +140,17 @@
 
 			return valid;
 		},
+		getSmallStraightScore : function(roll)
+		{
+			var score = 0;
+
+			if (this.isSmallStraight(roll))
+			{
+				score = 15;
+			}
+
+			return score;
+		},
 		isLargeStraight : function(roll)
 		{
 			var valid = true;
