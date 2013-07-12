@@ -142,3 +142,11 @@ test("Three of a kind", function()
 	ok(Yahtzee.getThreeOfAKindScore([4,2,3,2,1]) === 0, "Only one pair");
 	ok(Yahtzee.getThreeOfAKindScore([1,2,4,3,6]) === 0, "Unique values");
 });
+
+test("Four of a kind", function()
+{
+	ok(Yahtzee.getFourOfAKindScore([4,4,5,4,4]) === 16, "Fours");
+	ok(Yahtzee.getFourOfAKindScore([4,1,1,1,1]) === 4, "Ones");
+	ok(Yahtzee.getFourOfAKindScore([4,6,6,6,1]) === 0, "Only three of a kind");
+	ok(Yahtzee.getFourOfAKindScore([5,3,4,2,1]) === 0, "Unique values");
+});

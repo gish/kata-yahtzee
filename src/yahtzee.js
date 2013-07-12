@@ -111,6 +111,21 @@
 
 			return valid;
 		},
+		getFourOfAKindScore : function(roll)
+		{
+			var score = 0;
+
+			roll.sort();
+
+			if (!this.isFourOfAKind(roll))
+			{
+				return 0;
+			}
+
+			score = roll[2]*4;
+
+			return score;
+		},
 		isSmallStraight : function(roll)
 		{
 			var valid = true;
