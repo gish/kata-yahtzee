@@ -1,3 +1,5 @@
+module("Match categories");
+
 test("One pair", function()
 {
 	ok(Yahtzee.isPair([1,1,2,3,4]), "A pair with ones");
@@ -75,4 +77,54 @@ test("Ones", function()
 	ok(Yahtzee.isOnes([1,2,3,4,1]), "Two ones");
 	ok(Yahtzee.isOnes([1,2,3,4,2]), "One one");
 	ok(!Yahtzee.isOnes([6,2,3,4,6]), "No ones");
+});
+
+test("Twos", function()
+{
+	ok(Yahtzee.isTwos([2,2,2,2,2]), "All twos");
+	ok(Yahtzee.isTwos([2,1,3,4,2]), "Two twos");
+	ok(Yahtzee.isTwos([2,1,3,4,1]), "One two");
+	ok(!Yahtzee.isTwos([6,1,3,4,6]), "No twos");
+});
+
+test("Threes", function()
+{
+	ok(Yahtzee.isThrees([3,3,3,3,3]), "All threes");
+	ok(Yahtzee.isThrees([3,1,1,4,3]), "Two threes");
+	ok(Yahtzee.isThrees([3,1,1,4,1]), "One three");
+	ok(!Yahtzee.isThrees([6,1,1,4,6]), "No threes");
+});
+
+test("Fours", function()
+{
+	ok(Yahtzee.isFours([4,4,4,4,4]), "All fours");
+	ok(Yahtzee.isFours([4,1,1,4,2]), "Two fours");
+	ok(Yahtzee.isFours([4,1,1,6,1]), "One four");
+	ok(!Yahtzee.isFours([6,1,1,3,6]), "No fours");
+});
+
+test("Fives", function()
+{
+	ok(Yahtzee.isFives([5,5,5,5,5]), "All fives");
+	ok(Yahtzee.isFives([5,1,1,5,2]), "Two fives");
+	ok(Yahtzee.isFives([5,1,1,6,1]), "One five");
+	ok(!Yahtzee.isFives([6,1,1,3,6]), "No fives");
+});
+
+test("Sixes", function()
+{
+	ok(Yahtzee.isSixes([6,6,6,6,6]), "All sixes");
+	ok(Yahtzee.isSixes([6,1,1,6,2]), "Two sixes");
+	ok(Yahtzee.isSixes([6,1,1,4,1]), "One six");
+	ok(!Yahtzee.isSixes([4,1,1,3,4]), "No sixes");
+});
+
+module("Score");
+
+test("One pair", function()
+{
+	ok(Yahtzee.getPairScore([1,4,3,2,4]) === 8, "Pair of fours");
+	ok(Yahtzee.getPairScore([1,2,1,2,3]) === 4, "Pair of twos, overriding pair of ones");
+	ok(Yahtzee.getPairScore([1,5,3,4,2]) === 0, "No pair");
+	ok(Yahtzee.getPairScore([4,4,4,4,4]) === 8, "Pair of sixes where all sixes");
 });

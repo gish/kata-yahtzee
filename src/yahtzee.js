@@ -1,6 +1,14 @@
 (function(root)
 {
 	"use strict";
+
+	var isNumber = function(roll, number)
+	{
+		var valid = false;
+		valid = roll.indexOf(number) !== -1;
+		return valid;
+	};
+
 	var Yahtzee = {
 		isPair : function(roll)
 		{
@@ -14,6 +22,27 @@
 				valid |= (roll[i] === roll[i+1]);
 			}
 			return valid;
+		},
+		getPairScore : function(roll)
+		{
+			var score = 0;
+			var i;
+			roll.sort();
+
+			if (!this.isPair(roll))
+			{
+				return 0;
+			}
+
+			for (i = 0; i < 4; i++)
+			{
+				if (roll[i] == roll[i+1])
+				{
+					score = roll[i]*2;
+				}
+			}
+
+			return score;
 		},
 		isTwoPairs : function(roll)
 		{
@@ -102,9 +131,27 @@
 		},
 		isOnes : function(roll)
 		{
-			var valid = false;
-			valid = roll.indexOf(1) !== -1;
-			return valid;
+			return isNumber(roll, 1);
+		},
+		isTwos : function(roll)
+		{
+			return isNumber(roll, 2);
+		},
+		isThrees : function(roll)
+		{
+			return isNumber(roll, 3);
+		},
+		isFours : function(roll)
+		{
+			return isNumber(roll, 4);
+		},
+		isFives : function(roll)
+		{
+			return isNumber(roll, 5);
+		},
+		isSixes : function(roll)
+		{
+			return isNumber(roll, 6);
 		}
 	};
 
