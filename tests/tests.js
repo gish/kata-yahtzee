@@ -135,3 +135,10 @@ test("Two pairs", function()
 	ok(Yahtzee.getTwoPairsScore([1,3,2,4,3]) === 0, "Only one pair");
 	ok(Yahtzee.getTwoPairsScore([3,3,2,3,3]) === 0, "Two pairs of same value");
 });
+
+test("Three of a kind", function()
+{
+	ok(Yahtzee.getThreeOfAKindScore([3,3,4,5,3]) === 9, "Threes");
+	ok(Yahtzee.getThreeOfAKindScore([4,2,3,2,1]) === 0, "Only one pair");
+	ok(Yahtzee.getThreeOfAKindScore([1,2,4,3,6]) === 0, "Unique values");
+});

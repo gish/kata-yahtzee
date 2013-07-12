@@ -84,6 +84,23 @@
 			}
 			return valid;
 		},
+		getThreeOfAKindScore : function(roll)
+		{
+			var score = 0;
+			var i;
+
+			roll.sort();
+
+			for (i = 0; i < 3; i++)
+			{
+				if (roll[i] === roll[i+1] && roll[i] === roll[i+2])
+				{
+					score = roll[i]*3;
+				}
+			}
+
+			return score;
+		},
 		isFourOfAKind : function(roll)
 		{
 			var valid = false;
