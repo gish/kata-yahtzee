@@ -36,7 +36,7 @@
 
 			for (i = 0; i < 4; i++)
 			{
-				if (roll[i] == roll[i+1])
+				if (roll[i] === roll[i+1])
 				{
 					score = roll[i]*2;
 				}
@@ -49,6 +49,27 @@
 			roll.sort();
 			return	((roll[0] === roll[1]) && (roll[2] === roll[3]) && (roll[0] !== roll[2])) ||
 					((roll[0] === roll[1] || roll[1] === roll[2]) && (roll[3] === roll[4]) && (roll[1] !== roll[3]));
+		},
+		getTwoPairsScore : function(roll)
+		{
+			var score = 0;
+
+			roll.sort();
+
+			if (!this.isTwoPairs(roll))
+			{
+				return 0;
+			}
+
+			for (var i = 0; i < 4; i++)
+			{
+				if (roll[i] === roll[i+1])
+				{
+					score += roll[i]*2;
+				}
+			}
+
+			return score;
 		},
 		isThreeOfAKind : function(roll)
 		{

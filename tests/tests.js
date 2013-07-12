@@ -128,3 +128,10 @@ test("One pair", function()
 	ok(Yahtzee.getPairScore([1,5,3,4,2]) === 0, "No pair");
 	ok(Yahtzee.getPairScore([4,4,4,4,4]) === 8, "Pair of sixes where all sixes");
 });
+
+test("Two pairs", function()
+{
+	ok(Yahtzee.getTwoPairsScore([4,3,2,4,3]) === 14, "Pair of fours and threes");
+	ok(Yahtzee.getTwoPairsScore([1,3,2,4,3]) === 0, "Only one pair");
+	ok(Yahtzee.getTwoPairsScore([3,3,2,3,3]) === 0, "Two pairs of same value");
+});
