@@ -157,3 +157,10 @@ test("Small straight", function()
 	ok(Yahtzee.getSmallStraightScore([4,3,2,2,5]) === 0, "One pair");
 	ok(Yahtzee.getSmallStraightScore([2,2,2,2,2]) === 0, "Yahtzee");
 });
+
+test("Large straight", function()
+{
+	ok(Yahtzee.getLargeStraightScore([2,3,4,6,5]) === 20, "Large straight");
+	ok(Yahtzee.getLargeStraightScore([1,2,3,5,4]) === 0, "Small straight");
+	ok(Yahtzee.getLargeStraightScore([2,2,2,2,2]) === 0, "Yahtzee");
+});

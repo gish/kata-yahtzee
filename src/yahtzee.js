@@ -165,6 +165,17 @@
 
 			return valid;
 		},
+		getLargeStraightScore : function(roll)
+		{
+			var score = 0;
+
+			if (this.isLargeStraight(roll))
+			{
+				score = 20;
+			}
+
+			return score;
+		},
 		isFullHouse : function(roll)
 		{
 			var valid = true;
