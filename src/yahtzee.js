@@ -23,7 +23,7 @@
 		}
 
 		return score;
-	}
+	};
 
 	var Yahtzee = {
 		isPair : function(roll)
@@ -309,6 +309,73 @@
 		getSixesScore : function(roll)
 		{
 			return getNumberScore(roll, 6);
+		},
+		getMatchingCategories : function(roll)
+		{
+			var categories = [];
+
+			if (this.isOnes(roll))
+			{
+				categories.push('ones');
+			}
+			if (this.isTwos(roll))
+			{
+				categories.push('twos');
+			}
+			if (this.isThrees(roll))
+			{
+				categories.push('threes');
+			}
+			if (this.isFours(roll))
+			{
+				categories.push('fours');
+			}
+			if (this.isFives(roll))
+			{
+				categories.push('fives');
+			}
+			if (this.isSixes(roll))
+			{
+				categories.push('sixes');
+			}
+			if (this.isPair(roll))
+			{
+				categories.push('pair');
+			}
+			if (this.isTwoPairs(roll))
+			{
+				categories.push('twoPairs');
+			}
+			if (this.isThreeOfAKind(roll))
+			{
+				categories.push('threeOfAKind');
+			}
+			if (this.isFourOfAKind(roll))
+			{
+				categories.push('fourOfAKind');
+			}
+			if (this.isSmallStraight(roll))
+			{
+				categories.push('smallStraight');
+			}
+			if (this.isLargeStraight(roll))
+			{
+				categories.push('largeStraight');
+			}
+			if (this.isFullHouse(roll))
+			{
+				categories.push('fullHouse');
+			}
+			if (this.isChance(roll))
+			{
+				categories.push('chance');
+			}
+			if (this.isYahtzee(roll))
+			{
+				categories.push('yahtzee');
+			}
+
+			return categories;
 		}
 	};
 

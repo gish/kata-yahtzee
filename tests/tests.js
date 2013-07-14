@@ -226,3 +226,31 @@ test("Sixes", function()
 	ok(Yahtzee.getSixesScore([4,1,3,2,1]) === 0, "Zero");
 	ok(Yahtzee.getSixesScore([6,6,6,6,6]) === 30, "Five");
 });
+
+module("Scoring");
+test("Get one matching category", function()
+{
+	ok(Yahtzee.getMatchingCategories([3,2,4,5,1]).indexOf('ones') !== -1, 'Ones');
+	ok(Yahtzee.getMatchingCategories([3,2,4,5,1]).indexOf('twos') !== -1, 'Twos');
+	ok(Yahtzee.getMatchingCategories([3,2,4,5,1]).indexOf('threes') !== -1, 'Threes');
+	ok(Yahtzee.getMatchingCategories([3,2,4,5,1]).indexOf('fours') !== -1, 'Fours');
+	ok(Yahtzee.getMatchingCategories([3,2,4,5,1]).indexOf('fives') !== -1, 'Fives');
+	ok(Yahtzee.getMatchingCategories([3,2,6,5,1]).indexOf('sixes') !== -1, 'Sixes');
+	ok(Yahtzee.getMatchingCategories([1,2,2,3,4]).indexOf('pair') !== -1, 'One pair');
+	ok(Yahtzee.getMatchingCategories([2,2,3,4,3]).indexOf('twoPairs') !== -1, 'Two pairs');
+	ok(Yahtzee.getMatchingCategories([2,2,3,2,3]).indexOf('threeOfAKind') !== -1, 'Three of a kind');
+	ok(Yahtzee.getMatchingCategories([2,2,2,4,2]).indexOf('fourOfAKind') !== -1, 'Four of a kind');
+	ok(Yahtzee.getMatchingCategories([3,2,4,5,1]).indexOf('smallStraight') !== -1, 'Small straight');
+	ok(Yahtzee.getMatchingCategories([3,2,6,5,4]).indexOf('largeStraight') !== -1, 'Large straight');
+	ok(Yahtzee.getMatchingCategories([3,5,5,3,5]).indexOf('fullHouse') !== -1, 'Full house');
+	ok(Yahtzee.getMatchingCategories([5,2,1,2,3]).indexOf('chance') !== -1, 'Chance');
+	ok(Yahtzee.getMatchingCategories([5,5,5,5,5]).indexOf('yahtzee') !== -1, 'Yahtzee');
+
+});
+
+test("Get multiple matching categories", function()
+{
+	propEqual(Yahtzee.getMatchingCategories([3,4,3,3,4]), ['threes', 'fours', 'pair', 'twoPairs', 'threeOfAKind', 'fullHouse', 'chance'], "Two fours, three threes");
+	propEqual(Yahtzee.getMatchingCategories([3,3,3,3,3]), ['threes', 'pair', 'threeOfAKind', 'fourOfAKind', 'chance', 'yahtzee'], "Five threes");
+	propEqual(Yahtzee.getMatchingCategories([4,3,1,5,6]), ['ones', 'threes', 'fours', 'fives', 'sixes', 'chance'], "Unique values (1, 3-6)");
+});
