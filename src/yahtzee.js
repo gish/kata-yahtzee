@@ -9,6 +9,22 @@
 		return valid;
 	};
 
+	var getNumberScore = function(roll, number)
+	{
+		var score = 0;
+		var i;
+
+		for (i = 0; i < roll.length; i++)
+		{
+			if (roll[i] === number)
+			{
+				score += number;
+			}
+		}
+
+		return score;
+	}
+
 	var Yahtzee = {
 		isPair : function(roll)
 		{
@@ -250,25 +266,49 @@
 		{
 			return isNumber(roll, 1);
 		},
+		getOnesScore : function(roll)
+		{
+			return getNumberScore(roll, 1);
+		},
 		isTwos : function(roll)
 		{
 			return isNumber(roll, 2);
+		},
+		getTwosScore : function(roll)
+		{
+			return getNumberScore(roll, 2);
 		},
 		isThrees : function(roll)
 		{
 			return isNumber(roll, 3);
 		},
+		getThreesScore : function(roll)
+		{
+			return getNumberScore(roll, 3);
+		},
 		isFours : function(roll)
 		{
 			return isNumber(roll, 4);
+		},
+		getFoursScore : function(roll)
+		{
+			return getNumberScore(roll, 4);
 		},
 		isFives : function(roll)
 		{
 			return isNumber(roll, 5);
 		},
+		getFivesScore : function(roll)
+		{
+			return getNumberScore(roll, 5);
+		},
 		isSixes : function(roll)
 		{
 			return isNumber(roll, 6);
+		},
+		getSixesScore : function(roll)
+		{
+			return getNumberScore(roll, 6);
 		}
 	};
 

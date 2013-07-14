@@ -184,3 +184,45 @@ test("Chance", function()
 	ok(Yahtzee.getChanceScore([1,2,3,4,5]) === 15, "Sum 15");
 	ok(Yahtzee.getChanceScore([5,3,3,4,5]) === 20, "Sum 20");
 });
+
+test("Ones", function()
+{
+	ok(Yahtzee.getOnesScore([1,1,5,3,2]) === 2, "Two");
+	ok(Yahtzee.getOnesScore([3,2,5,3,2]) === 0, "Zero");
+	ok(Yahtzee.getOnesScore([1,1,1,1,1]) === 5, "Five");
+});
+
+test("Twos", function()
+{
+	ok(Yahtzee.getTwosScore([2,2,5,3,2]) === 6, "Three");
+	ok(Yahtzee.getTwosScore([3,1,5,3,1]) === 0, "Zero");
+	ok(Yahtzee.getTwosScore([2,2,2,2,2]) === 10, "Five");
+});
+
+test("Threes", function()
+{
+	ok(Yahtzee.getThreesScore([3,2,5,3,2]) === 6, "Two");
+	ok(Yahtzee.getThreesScore([4,1,5,2,1]) === 0, "Zero");
+	ok(Yahtzee.getThreesScore([3,3,3,3,3]) === 15, "Five");
+});
+
+test("Fours", function()
+{
+	ok(Yahtzee.getFoursScore([4,2,4,3,4]) === 12, "Three");
+	ok(Yahtzee.getFoursScore([6,1,5,2,1]) === 0, "Zero");
+	ok(Yahtzee.getFoursScore([4,4,4,4,4]) === 20, "Five");
+});
+
+test("Fives", function()
+{
+	ok(Yahtzee.getFivesScore([5,5,4,5,4]) === 15, "Three");
+	ok(Yahtzee.getFivesScore([6,1,3,2,1]) === 0, "Zero");
+	ok(Yahtzee.getFivesScore([5,5,5,5,5]) === 25, "Five");
+});
+
+test("Sixes", function()
+{
+	ok(Yahtzee.getSixesScore([6,6,4,5,6]) === 18, "Three");
+	ok(Yahtzee.getSixesScore([4,1,3,2,1]) === 0, "Zero");
+	ok(Yahtzee.getSixesScore([6,6,6,6,6]) === 30, "Five");
+});
