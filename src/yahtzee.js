@@ -191,6 +191,23 @@
 
 			return valid;
 		},
+		getFullHouseScore : function(roll)
+		{
+			var score = 0;
+			var i;
+
+			if (!this.isFullHouse(roll))
+			{
+				return score;
+			}
+
+			for (i = 0; i < roll.length; i++)
+			{
+				score += roll[i];
+			}
+
+			return score;
+		},
 		isYahtzee : function(roll)
 		{
 			var valid = false;

@@ -164,3 +164,10 @@ test("Large straight", function()
 	ok(Yahtzee.getLargeStraightScore([1,2,3,5,4]) === 0, "Small straight");
 	ok(Yahtzee.getLargeStraightScore([2,2,2,2,2]) === 0, "Yahtzee");
 });
+
+test("Full house", function()
+{
+	ok(Yahtzee.getFullHouseScore([2,3,3,3,2]) === 13, "Twos and threes");
+	ok(Yahtzee.getFullHouseScore([6,6,4,4,4]) === 24, "Sixes and fours");
+	ok(Yahtzee.getFullHouseScore([6,6,3,4,4]) === 0, "Two pairs of fours and sixes");
+});
