@@ -4,23 +4,20 @@
 
 	var isNumber = function(roll, number)
 	{
-		var valid = false;
-		valid = roll.indexOf(number) !== -1;
-		return valid;
+		return roll.indexOf(number) !== -1;
 	};
 
 	var getNumberScore = function(roll, number)
 	{
 		var score = 0;
-		var i;
 
-		for (i = 0; i < roll.length; i++)
+		roll.forEach(function(value)
 		{
-			if (roll[i] === number)
+			if (value === number)
 			{
 				score += number;
 			}
-		}
+		});
 
 		return score;
 	};
@@ -89,20 +86,21 @@
 		},
 		isThreeOfAKind : function(roll)
 		{
-			var valid = false;
 			var i;
 
 			roll.sort();
 
 			for (i = 0; i < 3; i++)
 			{
-				valid |= (roll[i]*1E2 + roll[i + 1]*1E1 + roll[i + 2])%111 === 0;
+				if ((roll[i]*1E2 + roll[i + 1]*1E1 + roll[i + 2])%111 === 0)
+				{
+					return true;
+				}
 			}
-			return valid;
+			return false;
 		},
 		getThreeOfAKindScore : function(roll)
 		{
-			var score = 0;
 			var i;
 
 			roll.sort();
@@ -111,11 +109,11 @@
 			{
 				if (roll[i] === roll[i+1] && roll[i] === roll[i+2])
 				{
-					score = roll[i]*3;
+					return roll[i]*3;
 				}
 			}
 
-			return score;
+			return 0;
 		},
 		isFourOfAKind : function(roll)
 		{
@@ -145,14 +143,8 @@
 		isSmallStraight : function(roll)
 		{
 			var valid = true;
-			var i;
 
-			roll.sort();
-
-			for (i = 0; i < 5; i++)
-			{
-				valid &= (roll[i] === i+1);
-			}
+			valid = roll.sort().join("") === "12345";
 
 			return valid;
 		},
@@ -170,14 +162,8 @@
 		isLargeStraight : function(roll)
 		{
 			var valid = true;
-			var i;
 
-			roll.sort();
-
-			for (i = 0; i < 5; i++)
-			{
-				valid &= (roll[i] === i+2);
-			}
+			valid = roll.sort().join("") === "23456";
 
 			return valid;
 		},
@@ -210,17 +196,16 @@
 		getFullHouseScore : function(roll)
 		{
 			var score = 0;
-			var i;
 
 			if (!this.isFullHouse(roll))
 			{
 				return score;
 			}
 
-			for (i = 0; i < roll.length; i++)
+			roll.forEach(function(value)
 			{
-				score += roll[i];
-			}
+				score += value;
+			});
 
 			return score;
 		},
@@ -253,12 +238,11 @@
 		getChanceScore : function(roll)
 		{
 			var score = 0;
-			var i;
 
-			for (i = 0; i < roll.length; i++)
+			roll.forEach(function(value)
 			{
-				score += roll[i];
-			}
+				score += value;
+			});
 
 			return score;
 		},
