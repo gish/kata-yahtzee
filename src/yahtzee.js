@@ -216,6 +216,19 @@
 
 			return valid;
 		},
+		getYahtzeeScore : function(roll)
+		{
+			var score = 0;
+
+			if (!this.isYahtzee(roll))
+			{
+				return score;
+			}
+
+			score = 50;
+
+			return score;
+		},
 		isChance : function(roll)
 		{
 			var valid = true;

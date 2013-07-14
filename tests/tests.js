@@ -171,3 +171,10 @@ test("Full house", function()
 	ok(Yahtzee.getFullHouseScore([6,6,4,4,4]) === 24, "Sixes and fours");
 	ok(Yahtzee.getFullHouseScore([6,6,3,4,4]) === 0, "Two pairs of fours and sixes");
 });
+
+test("Yahtzee", function()
+{
+	ok(Yahtzee.getYahtzeeScore([5,5,5,5,5]) === 50, "Yahtzee of fives");
+	ok(Yahtzee.getYahtzeeScore([4,4,4,4,4]) === 50, "Yahtzee of fours");
+	ok(Yahtzee.getYahtzeeScore([5,5,5,5,2]) === 0, "Four of a kind");
+});
