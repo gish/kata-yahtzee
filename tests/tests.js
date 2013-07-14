@@ -178,3 +178,9 @@ test("Yahtzee", function()
 	ok(Yahtzee.getYahtzeeScore([4,4,4,4,4]) === 50, "Yahtzee of fours");
 	ok(Yahtzee.getYahtzeeScore([5,5,5,5,2]) === 0, "Four of a kind");
 });
+
+test("Chance", function()
+{
+	ok(Yahtzee.getChanceScore([1,2,3,4,5]) === 15, "Sum 15");
+	ok(Yahtzee.getChanceScore([5,3,3,4,5]) === 20, "Sum 20");
+});

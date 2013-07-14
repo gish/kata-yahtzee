@@ -234,6 +234,18 @@
 			var valid = true;
 			return valid;
 		},
+		getChanceScore : function(roll)
+		{
+			var score = 0;
+			var i;
+
+			for (i = 0; i < roll.length; i++)
+			{
+				score += roll[i];
+			}
+
+			return score;
+		},
 		isOnes : function(roll)
 		{
 			return isNumber(roll, 1);
